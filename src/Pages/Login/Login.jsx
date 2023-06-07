@@ -1,13 +1,26 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
+    const [error, setError] = useState('')
+    const {signIn} = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value
         const password = form.password.value
-        console.log(email, password);
+        // console.log(email, password);
+        setError('')
+        signIn(email, password) 
+        .then(result =>{
+            const logged = result.user
+            console.log(logged);
+            navigate('/')
+        })
+        .catch(err => setError(err.message))
     }
     
     return (
@@ -42,7 +55,7 @@ const Login = () => {
                             {/* <button>
                                 <img onClick={googleLogin} className='w-1/4 mx-auto mt-3 border' src={logo} alt="" />
                             </button> */}
-                            {/* <p className='text-red-600'><small>{error}</small></p> */}
+                            <p className='text-red-600'><small>{error}</small></p>
                         </div>
                     </form>
                 </div>

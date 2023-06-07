@@ -12,8 +12,12 @@ const Navbar = () => {
     const navbarOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li></li>
-        {user ? <li><Link onClick={handleLogout}>Logout</Link></li> :
-            <li><Link to='/login'>Login</Link></li>
+        {user ? <>
+            <li><Link onClick={handleLogout}>Logout</Link></li> 
+            <img src={user.photoURL} alt="" />
+        </>
+        
+        :<li><Link to='/login'>Login</Link></li>
         }
     </>
 
