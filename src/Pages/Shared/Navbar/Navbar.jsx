@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
-
+import logo from '../../../assets/logo.jpg'
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
@@ -11,8 +11,10 @@ const Navbar = () => {
 
     const navbarOptions = <>
         <li><Link to='/'>Home</Link></li>
-        <li></li>
+        <li><Link>Instructors</Link></li>
+        <li><Link>Classes</Link></li>
         {user ? <>
+            <li><Link>Dashboard</Link></li> 
             <li><Link onClick={handleLogout}>Logout</Link></li> 
             <img src={user.photoURL} alt="" />
         </>
@@ -22,7 +24,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar fixed bg-gray-500 z-10 max-w-screen-xl ">
+        <div className="navbar fixed bg-white z-10 max-w-screen-xl ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,16 +34,16 @@ const Navbar = () => {
                         {navbarOptions}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+               
+                <img className='w-1/6 h-20' src={logo} alt="" />
+                    <h3 className='text-xl font-semibold ml-3'>Sports Academy</h3>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navbarOptions}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
-            </div>
+            
         </div>
     );
 };
