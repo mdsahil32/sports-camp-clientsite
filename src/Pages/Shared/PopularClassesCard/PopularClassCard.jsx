@@ -13,8 +13,7 @@ const PopularClassCard = ({ classe }) => {
                     <h4>Instructor Name: {instructorName}</h4>
                     <h4>Price: ${price}</h4>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline">Fashion</div>
-                        <div className="badge badge-outline">Products</div>
+                        <div className="badge badge-outline text-xl">select</div>
                     </div>
                 </div>
             </div>
