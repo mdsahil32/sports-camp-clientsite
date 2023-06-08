@@ -14,7 +14,7 @@ const Classes = () => {
 
     return (
         <div>
-            <h2 className="text-4xl font-semibold text-center uppercase mt-24 underline">popular classes</h2>
+            <h2 className="text-4xl font-semibold text-center uppercase mt-24 underline"> classes</h2>
            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 ">
            {
                 classes.map(classe => <PopularClassCard

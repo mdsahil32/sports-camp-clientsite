@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import logo from '../../assets/images/google.png'
 
 const Login = () => {
     const [error, setError] = useState('')
-    const {signIn} = useContext(AuthContext)
+    const {signIn,signInWithGoogle} = useContext(AuthContext)
     const navigate = useNavigate()
 
     const handleLogin = event => {
@@ -19,6 +20,15 @@ const Login = () => {
             const logged = result.user
             console.log(logged);
             navigate('/')
+        })
+        .catch(err => setError(err.message))
+    }
+    const googleLogin = () =>{
+        signInWithGoogle()
+        .then(result => {
+            const logged = result.user;
+            navigate('/')
+            console.log(logged);
         })
         .catch(err => setError(err.message))
     }
@@ -52,9 +62,9 @@ const Login = () => {
                                 <input className="btn bg-blue-700 border-0" type="submit" value="Login" />
                             </div>
 
-                            {/* <button>
+                            <button>
                                 <img onClick={googleLogin} className='w-1/4 mx-auto mt-3 border' src={logo} alt="" />
-                            </button> */}
+                            </button>
                             <p className='text-red-600'><small>{error}</small></p>
                         </div>
                     </form>
