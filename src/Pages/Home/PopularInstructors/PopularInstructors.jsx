@@ -6,7 +6,7 @@ const PopularInstructors = () => {
     const [instructors , setInstructors] = useState([])
 
     useEffect(() =>{
-        const url = 'Instructors.json'
+        const url = 'http://localhost:5000/instructors'
         axios.get(url).then(res =>{
             setInstructors(res.data)
         })
@@ -16,10 +16,9 @@ const PopularInstructors = () => {
         <div className="max-w-screen-lg mx-auto">
             <h2 className="text-4xl font-semibold text-center uppercase mt-24 underline ">popular Instructors</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 ">
-                {/* TODO set key._id */}
            {
                 instructors.slice(0,6).map(instructor => <Instructors
-                key={instructor.name}
+                key={instructor._id}
                 instructor={instructor}
                 ></Instructors>)
             }

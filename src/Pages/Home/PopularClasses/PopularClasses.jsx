@@ -7,7 +7,7 @@ const PopularClasses = () => {
     const [classes, setClasses] = useState([])
 
     useEffect(() => {
-        const url = 'classes.json'
+        const url = 'http://localhost:5000/classes'
         axios.get(url).then(res => {
             setClasses(res.data);
         })
@@ -15,11 +15,10 @@ const PopularClasses = () => {
     return (
         <div>
             <h2 className="text-4xl font-semibold text-center uppercase mt-24 underline">popular classes</h2>
-            {/* TODO : KEY _ID */}
            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 ">
            {
                 classes.slice(0,6).map(classe => <PopularClassCard
-                key={classe.name}
+                key={classe._id}
                 classe={classe}
                 ></PopularClassCard>)
             }
