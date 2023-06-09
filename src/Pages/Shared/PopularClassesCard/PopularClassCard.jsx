@@ -9,13 +9,16 @@ const PopularClassCard = ({ classe }) => {
     const { image, availableSeats, price, sportName, instructorName, _id } = classe
 
     const handleAdd = classe => {
+        console.log(classe);
         if (user && user?.email) {
+            const mySelectedClass = {classId:_id,image, availableSeats, price, sportName, instructorName }
+
             fetch('http://localhost:5000/myclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(classe)
+                body: JSON.stringify(mySelectedClass)
             })
                 .then(res => res.json())
                 .then(data => {
