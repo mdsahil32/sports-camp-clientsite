@@ -2,23 +2,23 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import logo from '../../../assets/logo.jpg'
-const Navbar = () => {
 
+const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () =>{
         logOut()
     }
+
 
     const navbarOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructor'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {user ? <>
-            <li><Link to='/dashboard'>Dashboard</Link></li> 
+            <li><Link to='/dashboard/myclass'>Dashboard</Link></li> 
             <li><Link onClick={handleLogout}>Logout</Link></li> 
-            <img className='w-1/12 rounded-full' src={user.photoURL} alt="" />
+            <img src={user?.photoURL} className='w-1/12 rounded-full' alt="" />
         </>
-        
         :<li><Link to='/login'>Login</Link></li>
         }
     </>

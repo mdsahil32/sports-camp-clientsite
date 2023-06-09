@@ -1,6 +1,52 @@
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 
 const PopularClassCard = ({ classe }) => {
-    const { image, availableSeats, price, sportName, instructorName } = classe
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const { image, availableSeats, price, sportName, instructorName, _id } = classe
+
+    const handleAdd = classe => {
+        if (user && user?.email) {
+            fetch('http://localhost:5000/myclass', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(classe)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Class added.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'Please login to order the food',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                      navigate('/login', {state: {from: location}})
+                }
+            })
+        }
+
+    }
+
     return (
         <>
             <div className="card w-96 bg-base-100 shadow-xl my-12">
@@ -13,7 +59,8 @@ const PopularClassCard = ({ classe }) => {
                     <h4>Instructor Name: {instructorName}</h4>
                     <h4>Price: ${price}</h4>
                     <div className="card-actions justify-end">
-                        <div className="badge badge-outline text-xl">select</div>
+                        <button onClick={() => handleAdd(classe)} className="badge badge-outline text-xl">select</button>
+                      <Link to={`/classes/${_id}`}>  <button   className="badge badge-outline text-xl">Details</button></Link>
                     </div>
                 </div>
             </div>
