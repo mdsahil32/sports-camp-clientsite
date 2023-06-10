@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
 
 const MyClassDetail = ({ mySelected, index, myClass, setMyClass }) => {
+
+    // console.log(user.email);
     const { image, instructorName, price, sportName, _id, availableSeats } = mySelected
 
     const handleDelete = _id => {

@@ -11,7 +11,7 @@ const PopularClassCard = ({ classe }) => {
     const handleAdd = classe => {
         console.log(classe);
         if (user && user?.email) {
-            const mySelectedClass = {classId:_id,image, availableSeats, price, sportName, instructorName }
+            const mySelectedClass = {classId:_id,image, availableSeats, price, sportName, instructorName, user:user.email }
 
             fetch('http://localhost:5000/myclass', {
                 method: 'POST',
