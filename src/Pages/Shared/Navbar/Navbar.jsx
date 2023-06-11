@@ -7,7 +7,7 @@ import useAdmin from '../../../hooks/useAdmin';
 const Navbar = () => {
     const [isAdmin] = useAdmin()
     const { user, logOut } = useContext(AuthContext)
-    const handleLogout = () =>{
+    const handleLogout = () => {
         logOut()
     }
 
@@ -17,12 +17,13 @@ const Navbar = () => {
         <li><Link to='/instructor'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {user ? <>
-            {isAdmin? <li><Link to='/dashboard/allusers'>Dashboard</Link></li>:<li><Link to='/dashboard/myclass'>Dashboard</Link></li>} 
-            <li><Link onClick={handleLogout}>Logout</Link></li> 
+            {isAdmin ? <li><Link to='/dashboard/allusers'>Dashboard</Link></li> : <li><Link to='/dashboard/myclass'>Dashboard</Link></li>}
+            <li><Link onClick={handleLogout}>Logout</Link></li>
             <img src={user?.photoURL} className='w-1/12 rounded-full' alt="" />
         </>
-        :<li><Link to='/login'>Login</Link></li>
+            : <li><Link to='/login'>Login</Link></li>
         }
+
     </>
 
     return (
@@ -36,16 +37,17 @@ const Navbar = () => {
                         {navbarOptions}
                     </ul>
                 </div>
-               
+
                 <img className='w-1/6 h-20' src={logo} alt="" />
-                    <h3 className='text-xl font-semibold ml-3 bg-blue-400 p-1 rounded-lg'>Sports Academy</h3>
+                <h3 className='text-xl font-semibold ml-3 bg-blue-400 p-1 rounded-lg'>Sports Academy</h3>
+
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navbarOptions}
                 </ul>
             </div>
-            
+
         </div>
     );
 };

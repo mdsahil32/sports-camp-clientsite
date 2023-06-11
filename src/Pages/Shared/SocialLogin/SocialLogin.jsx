@@ -31,11 +31,11 @@ const SocialLogin = () => {
     }
     return (
         <>
-            <div className="w-full text-center my-4">
-                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline">
+            
+                <button onClick={handleGoogleSignIn} className="btn btn-circle btn-outline mx-auto bg-black">
                    <img src={googleImg} alt="" />
                 </button>
-            </div>
+           
         </>
     );
 };

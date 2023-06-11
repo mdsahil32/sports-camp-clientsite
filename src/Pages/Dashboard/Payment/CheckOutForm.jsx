@@ -4,7 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import './checkOutForm.css'
 
-const CheckOutForm = ({cart, price }) => {
+const CheckOutForm = ({ price }) => {
     const stripe = useStripe()
     const {user} = useAuth()
     const elements = useElements()

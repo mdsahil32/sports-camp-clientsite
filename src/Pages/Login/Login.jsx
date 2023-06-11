@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -6,6 +6,7 @@ import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 
 const Login = () => {
+    const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,6 +24,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setError('')
                 Swal.fire({
                     title: 'User Login Successful.',
                     showClass: {
@@ -33,7 +35,7 @@ const Login = () => {
                     }
                 });
                 navigate(from, { replace: true });
-            })
+            }).catch(error => setError(error.message))
     }
 
     return (
@@ -57,12 +59,13 @@ const Login = () => {
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" />
                             </div>
+                            <p className="text-red-600">{error}</p>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Login" />
+                                <input className="btn bg-blue-400" type="submit" value="Login" />
                             </div>
-                        </form>
-                        <p><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
+                        <p><small>New Here? <Link to="/signup" className="text-blue-600 underline">Create an account</Link> </small></p>
                         <SocialLogin></SocialLogin>
+                        </form>
                     </div>
                 </div>
             </div>

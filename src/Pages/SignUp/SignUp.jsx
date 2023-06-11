@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
@@ -6,13 +6,17 @@ import { AuthContext } from "../../providers/AuthProvider";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
-
+    const [error, setError] = useState('')
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onSubmit = data => {
-
+        if (data.password !== data.confirmPassword) {
+            setError("password not same")
+            return;
+        }
+        console.log(data.password);
         createUser(data.email, data.password)
             .then(result => {
 
@@ -44,7 +48,7 @@ const SignUp = () => {
                                 }
                             })
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => setError(error))
             })
     };
 
@@ -93,16 +97,21 @@ const SignUp = () => {
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                 {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
                                 {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase one lower case, one number and one special character.</p>}
+                            </div>
+                            <div className="form-control">
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <span className="label-text">Confirm Password</span>
                                 </label>
+                                <input type="password"  {...register("confirmPassword")} placeholder="confirm password" className="input input-bordered" />
                             </div>
-                            <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                        <p className="text-red-600">{error}</p>
+
+                            <div className="form-control ">
+                                <input className="btn bg-blue-400" type="submit" value="Sign Up" />
                             </div>
-                        </form>
-                        <p><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p><small>Already have an account <Link to="/login" className="text-blue-600 underline">Login</Link></small></p>
                         <SocialLogin></SocialLogin>
+                        </form>
                     </div>
                 </div>
             </div>

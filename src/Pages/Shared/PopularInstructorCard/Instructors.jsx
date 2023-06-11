@@ -1,7 +1,6 @@
 
 const Instructors = ({ instructor }) => {
-    console.log(instructor);
-    // const { name, email, image } = instructor
+    // console.log(instructor);
 
     return (
         <div className="card w-full bg-base-100 shadow-xl my-12">
