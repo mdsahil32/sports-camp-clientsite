@@ -63,7 +63,7 @@ const PopularClassCard = ({ classe }) => {
                     <h4>Price: ${price}</h4>
                     <div className="card-actions justify-end">
                         <button onClick={() => handleAdd(classe)} className="badge badge-outline text-xl">select</button>
-                      <Link to={`/classes/${_id}`}>  <button   className="badge badge-outline text-xl">Details</button></Link>
+                      <Link to={`/classes/${_id}`}>  <button  className="badge badge-outline text-xl">Details</button></Link>
                     </div>
                 </div>
             </div>

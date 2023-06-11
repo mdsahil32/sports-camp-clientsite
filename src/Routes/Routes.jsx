@@ -13,12 +13,15 @@ import MyEnrolledClass from "../Pages/Dashboard/MyEnrolledClass/MyEnrolledClass"
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import Instructor from "../Pages/Instructor/Instructor";
+import AdminRoute from "./AdminRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -42,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'classes/:id',
-        element: <ClassDetail></ClassDetail>,
+        element:<ClassDetail></ClassDetail>,
         loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
       }
     ]
@@ -61,16 +64,12 @@ const router = createBrowserRouter([
       },
       {
         path: 'payment',
-        element: <Payment></Payment>
+        element: <AdminRoute><Payment></Payment></AdminRoute>
       },
       {
         path: 'allusers',
-        element: <AllUser></AllUser>
+        element: <AdminRoute><AllUser></AllUser></AdminRoute>
       },
-      // {
-      //   path: 'addItem',
-      //   element: <AdminRoute><AddItem></AddItem></AdminRoute>
-      // },
     ]
   }
 ]);

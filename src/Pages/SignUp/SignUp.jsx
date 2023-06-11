@@ -10,6 +10,7 @@ const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
         if (data.password !== data.confirmPassword) {
@@ -44,7 +45,7 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
-                                    navigate('/');
+                                    navigate(from, { replace: true });
                                 }
                             })
                     })
@@ -54,7 +55,7 @@ const SignUp = () => {
 
     return (
         <>
-        
+
             <div className="hero w-full bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="text-center ">
@@ -104,13 +105,13 @@ const SignUp = () => {
                                 </label>
                                 <input type="password"  {...register("confirmPassword")} placeholder="confirm password" className="input input-bordered" />
                             </div>
-                        <p className="text-red-600">{error}</p>
+                            <p className="text-red-600">{error}</p>
 
                             <div className="form-control ">
                                 <input className="btn bg-blue-400" type="submit" value="Sign Up" />
                             </div>
-                        <p><small>Already have an account <Link to="/login" className="text-blue-600 underline">Login</Link></small></p>
-                        <SocialLogin></SocialLogin>
+                            <p><small>Already have an account <Link to="/login" className="text-blue-600 underline">Login</Link></small></p>
+                            <SocialLogin></SocialLogin>
                         </form>
                     </div>
                 </div>
