@@ -64,7 +64,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'payment',
-        element: <AdminRoute><Payment></Payment></AdminRoute>
+        element: <Payment></Payment>
       },
       {
         path: 'allusers',

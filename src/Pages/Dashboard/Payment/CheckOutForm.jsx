@@ -34,7 +34,7 @@ const CheckOutForm = ({ price }) => {
 
         const card = elements.getElement(CardElement);
         if (card === null) {
-            return
+           console.log('card',card);
         }
 
         const { error } = await stripe.createPaymentMethod({
@@ -71,6 +71,8 @@ const CheckOutForm = ({ price }) => {
 
         console.log('payment intent', paymentIntent)
         setProcessing(false)
+         if (paymentIntent.status === 'succeeded') {
+            setTransactionId(paymentIntent.id);}
     
     }
 
