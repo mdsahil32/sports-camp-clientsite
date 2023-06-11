@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: 'classes/:id',
         element: <ClassDetail></ClassDetail>,
-        loader: ({params}) => fetch(`http://localhost:5000/classes/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
       }
     ]
   },
@@ -63,23 +63,14 @@ const router = createBrowserRouter([
         path: 'payment',
         element: <Payment></Payment>
       },
-     // admin routes :
-    //  {
-    //   path: 'adminhome',
-    //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
-    // },
-    {
-      path: 'allusers', 
-      element: <AllUser></AllUser>
-    },
-    // {
-    //   path: 'addItem',
-    //   element: <AdminRoute><AddItem></AddItem></AdminRoute>
-    // },
-    // {
-    //   path: 'manageitems',
-    //   element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
-    // }
+      {
+        path: 'allusers',
+        element: <AllUser></AllUser>
+      },
+      // {
+      //   path: 'addItem',
+      //   element: <AdminRoute><AddItem></AddItem></AdminRoute>
+      // },
     ]
   }
 ]);

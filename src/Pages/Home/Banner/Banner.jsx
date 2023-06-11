@@ -18,8 +18,8 @@ const Banner = () => {
                         </h1>
 
                         <div className=' flex justify-center items-end gap-5 '>
-                            <a href="#slide4" className="btn btn-circle bg-white">❮</a>
-                            <a href="#slide2" className="btn btn-circle bg-white">❯</a>
+                            <a href="#slide4" className="btn btn-circle bg-blue-400">❮</a>
+                            <a href="#slide2" className="btn btn-circle bg-blue-400">❯</a>
                         </div>
 
                     </div>
@@ -35,8 +35,8 @@ const Banner = () => {
                             <span>Sports Academy</span>
                         </h1>
                         <div className=' flex justify-center items-end gap-5 '>
-                            <a href="#slide1" className="btn btn-circle bg-white">❮</a>
-                            <a href="#slide3" className="btn btn-circle bg-white">❯</a>
+                            <a href="#slide1" className="btn btn-circle bg-blue-400">❮</a>
+                            <a href="#slide3" className="btn btn-circle bg-blue-400">❯</a>
                         </div>
                     </div>
                 </div>
@@ -50,8 +50,8 @@ const Banner = () => {
                             <span>Sports Academy</span>
                         </h1>
                         <div className=' flex justify-center items-end gap-5 '>
-                            <a href="#slide2" className="btn btn-circle bg-white">❮</a>
-                            <a href="#slide4" className="btn btn-circle bg-white">❯</a>
+                            <a href="#slide2" className="btn btn-circle bg-blue-400">❮</a>
+                            <a href="#slide4" className="btn btn-circle bg-blue-400">❯</a>
                         </div>
                     </div>
                 </div>

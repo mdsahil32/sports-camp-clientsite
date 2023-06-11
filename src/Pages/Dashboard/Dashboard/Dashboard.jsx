@@ -22,11 +22,11 @@ const Dashboard = () => {
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
                         {isAdmin ? <>
-                            <NavLink to='/dashboard/allusers'>All User</NavLink>
+                            <NavLink  to='/dashboard/allusers'>All User</NavLink>
                             {/* <NavLink to='/dashboard/enrolledclass' className='my-2'>My Enrolled Classes</NavLink> */}
                         </>
-                            : <><NavLink to='/dashboard/myclass'>My Selected Classes</NavLink>
-                                <NavLink to='/dashboard/enrolledclass' className='my-2'>My Enrolled Classes</NavLink></>}
+                            : <><NavLink to='/dashboard/myclass' className='text-xl my-3'>My Selected Classes</NavLink>
+                                <NavLink to='/dashboard/enrolledclass' className='text-xl my-2'>My Enrolled Classes</NavLink></>}
                     </ul>
 
                 </div>

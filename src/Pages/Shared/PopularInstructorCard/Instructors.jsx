@@ -4,7 +4,7 @@ const Instructors = ({ instructor }) => {
     // const { name, email, image } = instructor
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl my-12">
+        <div className="card w-full bg-base-100 shadow-xl my-12">
             <div className="card-body">
                 <h2 className="card-title">Instructor Name: {instructor?.name}</h2>
                 <p>Email: {instructor?.email}</p>
