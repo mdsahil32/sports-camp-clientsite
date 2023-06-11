@@ -1,16 +1,19 @@
 import {
   createBrowserRouter,
 } from "react-router-dom";
-import Home from "../Pages/Home/Home/Home";
 import MainLayout from "../MainLayout/MainLayout";
+import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
-import Register from "../Pages/Register/Register";
-import Instructor from "../Pages/Instructor/Instructor";
+import SignUp from "../Pages/SignUp/SignUp";
 import Classes from "../Pages/Classes/Classes";
+import ClassDetail from "../Pages/ClassesDetails/ClassDetail";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import MyClass from "../Pages/Dashboard/MyClass/MyClass";
 import MyEnrolledClass from "../Pages/Dashboard/MyEnrolledClass/MyEnrolledClass";
-import ClassDetail from "../Pages/ClassesDetails/ClassDetail";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import AllUser from "../Pages/Dashboard/AllUser/AllUser";
+import Instructor from "../Pages/Instructor/Instructor";
+
 
 const router = createBrowserRouter([
   {
@@ -26,16 +29,16 @@ const router = createBrowserRouter([
         element: <Login></Login>
       },
       {
-        path: 'register',
-        element: <Register></Register>
-      },
-      {
-        path: 'instructor',
-        element: <Instructor></Instructor>
+        path: 'signup',
+        element: <SignUp></SignUp>
       },
       {
         path: 'classes',
         element: <Classes></Classes>
+      },
+      {
+        path: 'instructor',
+        element: <Instructor></Instructor>
       },
       {
         path: 'classes/:id',
@@ -55,7 +58,28 @@ const router = createBrowserRouter([
       {
         path: 'enrolledclass',
         element: <MyEnrolledClass></MyEnrolledClass>
-      }
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
+     // admin routes :
+    //  {
+    //   path: 'adminhome',
+    //   element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
+    // },
+    {
+      path: 'allusers', 
+      element: <AllUser></AllUser>
+    },
+    // {
+    //   path: 'addItem',
+    //   element: <AdminRoute><AddItem></AddItem></AdminRoute>
+    // },
+    // {
+    //   path: 'manageitems',
+    //   element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
+    // }
     ]
   }
 ]);

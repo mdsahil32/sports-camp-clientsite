@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import PopularClassCard from "../../Shared/PopularClassesCard/PopularClassCard";
 
 
+
 const PopularClasses = () => {
     const [classes, setClasses] = useState([])
 

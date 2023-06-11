@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyClassDetail = ({ mySelected, index, myClass, setMyClass }) => {
@@ -16,21 +17,21 @@ const MyClassDetail = ({ mySelected, index, myClass, setMyClass }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/myclass/${_id}`,{
+                fetch(`http://localhost:5000/myclass/${_id}`, {
                     method: 'DELETE',
                 })
-                .then(res =>res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        Swal.fire(
-                            'Deleted!',
-                            'Your selected class has been deleted.',
-                            'success'
-                          )
-                          const remaining = myClass.filter(Class => Class._id !== _id)
-                          setMyClass(remaining)
-                    }
-                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your selected class has been deleted.',
+                                'success'
+                            )
+                            const remaining = myClass.filter(Class => Class._id !== _id)
+                            setMyClass(remaining)
+                        }
+                    })
             }
         })
     }
@@ -58,6 +59,11 @@ const MyClassDetail = ({ mySelected, index, myClass, setMyClass }) => {
             </td>
             <td>
                 <button onClick={() => handleDelete(_id)} className="badge badge-outline text-xl">Delete</button>
+            </td>
+            <td>
+                <Link to='/dashboard/payment'>
+                    <button className="btn btn-secondary btn-sm">PAY</button>
+                </Link>
             </td>
         </tr>
     );

@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ClassDetail = () => {
     const classDetail = useLoaderData()
-    const { image, availableSeats, price, sportName, instructorName, _id } = classDetail
+    const { image, availableSeats, price, sportName, instructorName, } = classDetail
     return (
         <>
         <h3 className="text-3xl uppercase font-serif font-semibold text-center">Details</h3>

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import MyClassDetail from "./MyClassDetail";
-import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const MyClass = () => {
     const { user } = useContext(AuthContext)
@@ -18,7 +18,7 @@ const MyClass = () => {
         <>
         <div className="flex space-x-12">
             <h3 className="text-3xl">Selected Class</h3>
-            <button className="text-xl bg-secondary text-white font-semibold p-2 rounded-xl">PAY</button>
+            
         </div>
             <div className="overflow-x-auto w-full">
                 <table className="table">

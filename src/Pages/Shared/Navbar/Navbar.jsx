@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import logo from '../../../assets/logo.jpg'
+import { AuthContext } from '../../../providers/AuthProvider';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
+    const [isAdmin] = useAdmin()
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () =>{
         logOut()
@@ -15,7 +17,7 @@ const Navbar = () => {
         <li><Link to='/instructor'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         {user ? <>
-            <li><Link to='/dashboard/myclass'>Dashboard</Link></li> 
+            {isAdmin? <li><Link to='/dashboard/allusers'>Dashboard</Link></li>:<li><Link to='/dashboard/myclass'>Dashboard</Link></li>} 
             <li><Link onClick={handleLogout}>Logout</Link></li> 
             <img src={user?.photoURL} className='w-1/12 rounded-full' alt="" />
         </>

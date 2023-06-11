@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Instructors from "../Shared/PopularInstructorCard/Instructors";
 
+
 const Instructor = () => {
 
     const [instructors , setInstructors] = useState([])
@@ -9,6 +10,7 @@ const Instructor = () => {
     useEffect(() =>{
         const url = 'http://localhost:5000/instructors'
         axios.get(url).then(res =>{
+            console.log(res.data);
             setInstructors(res.data)
         })
     },[])

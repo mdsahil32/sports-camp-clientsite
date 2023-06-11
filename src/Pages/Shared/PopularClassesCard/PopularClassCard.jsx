@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const PopularClassCard = ({ classe }) => {
     const { user } = useContext(AuthContext)
