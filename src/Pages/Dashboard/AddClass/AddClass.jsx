@@ -25,6 +25,7 @@ const AddClass = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            form.reset()
             if (data.insertedId) {
                 Swal.fire(
                     'Good job!',
