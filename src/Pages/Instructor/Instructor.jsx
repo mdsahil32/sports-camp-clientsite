@@ -8,7 +8,7 @@ const Instructor = () => {
     const [instructors , setInstructors] = useState([])
 
     useEffect(() =>{
-        const url = 'https://sports-academy-serversite.vercel.app/instructors'
+        const url = 'https://sports-academy-serversite-mdsahil32.vercel.app/instructors'
         axios.get(url).then(res =>{
             console.log(res.data);
             setInstructors(res.data)

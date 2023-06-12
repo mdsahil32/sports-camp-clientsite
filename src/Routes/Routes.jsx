@@ -50,7 +50,7 @@ const router = createBrowserRouter([
       {
         path: 'classes/:id',
         element:<ClassDetail></ClassDetail>,
-        loader: ({ params }) => fetch(`https://sports-academy-serversite.vercel.app/classes/${params.id}`)
+        loader: ({ params }) => fetch(`https://sports-academy-serversite-mdsahil32.vercel.app/classes/${params.id}`)
       }
     ]
   },

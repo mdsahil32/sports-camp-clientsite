@@ -8,7 +8,7 @@ const MyClass = () => {
     const [myClass, setMyClass] = useState([])
 
     useEffect(() => {
-        const url = `https://sports-academy-serversite.vercel.app/myclass/${user?.email}`
+        const url = `https://sports-academy-serversite-mdsahil32.vercel.app/myclass/${user?.email}`
         axios.get(url).then(res => {
             setMyClass(res.data);
         })

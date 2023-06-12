@@ -13,7 +13,7 @@ const PopularClassCard = ({ classe }) => {
         if (user && user?.email) {
             const mySelectedClass = {classId:_id,image, availableSeats, price, sportName, instructorName, user:user.email }
 
-            fetch('https://sports-academy-serversite.vercel.app/myclass', {
+            fetch('https://sports-academy-serversite-mdsahil32.vercel.app/myclass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

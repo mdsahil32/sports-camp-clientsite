@@ -5,7 +5,7 @@ const InstructorAddClass = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch('https://sports-academy-serversite.vercel.app/addclass')
+        fetch('https://sports-academy-serversite-mdsahil32.vercel.app/addclass')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

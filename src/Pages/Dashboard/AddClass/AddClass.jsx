@@ -15,7 +15,7 @@ const AddClass = () => {
         const price = form.price.value;
         const addClass = {classname, classimg, instructorname, instructoremail, seats, price}
         console.log(addClass);
-        fetch('https://sports-academy-serversite.vercel.app/addclass',{
+        fetch('https://sports-academy-serversite-mdsahil32.vercel.app/addclass',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
