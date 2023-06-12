@@ -3,14 +3,11 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import Footer from "../../Shared/Footer/Footer";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor()
-    const { user } = useContext(AuthContext)
     return (
         <>
             <Navbar></Navbar>
@@ -34,7 +31,8 @@ const Dashboard = () => {
                             <><NavLink className='text-xl my-3' to='/dashboard/allusers'>Manage Users</NavLink>
                             </>}
                         {
-                            isInstructor && <><NavLink to='/dashboard/addclass' className='text-xl my-3' >Add Class</NavLink></>
+                            isInstructor && <><NavLink to='/dashboard/addclass' className='text-xl my-3'>Add Class</NavLink>
+                            <NavLink to='/dashboard/myclasses' className='text-xl my-3'>My Classes</NavLink></>
                         }
                     </ul>
 
