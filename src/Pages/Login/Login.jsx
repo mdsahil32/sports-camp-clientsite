@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash, } from "react-icons/fa";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 
 const Login = () => {
+    const [show, setShow] = useState(false)
     const navigate = useNavigate();
     const [error, setError] = useState('')
     const { signIn } = useContext(AuthContext);
@@ -55,14 +57,19 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                <input type={show ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" />
+                                <p className="ml-72" onClick={() => setShow(!show)}>
+                                    {
+                                        show ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                                    }
+                                </p>
                             </div>
                             <p className="text-red-600">{error}</p>
                             <div className="form-control mt-6">
                                 <input className="btn bg-blue-400" type="submit" value="Login" />
                             </div>
-                        <p><small>New Here? <Link to="/signup" className="text-blue-600 underline">Create an account</Link> </small></p>
-                        <SocialLogin></SocialLogin>
+                            <p><small>New Here? <Link to="/signup" className="text-blue-600 underline">Create an account</Link> </small></p>
+                            <SocialLogin></SocialLogin>
                         </form>
                     </div>
                 </div>
