@@ -6,7 +6,7 @@ const PopularInstructors = () => {
     const [instructors , setInstructors] = useState([])
 
     useEffect(() =>{
-        const url = 'http://localhost:5000/instructors'
+        const url = 'https://sports-academy-serversite.vercel.app/instructors'
         axios.get(url).then(res =>{
             setInstructors(res.data)
         })
