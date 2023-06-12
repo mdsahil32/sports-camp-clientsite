@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.jpg'
 import { AuthContext } from '../../../providers/AuthProvider';
 import useAdmin from '../../../hooks/useAdmin';
+import useInstructor from '../../../hooks/useInstructor';
 
 const Navbar = () => {
     const [isAdmin] = useAdmin()
+    const [isInstructor] = useInstructor()
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
         logOut()
@@ -16,12 +18,15 @@ const Navbar = () => {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructor'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
-        {user ? <>
-            {isAdmin ? <li><Link to='/dashboard/allusers'>Dashboard</Link></li> : <li><Link to='/dashboard/myclass'>Dashboard</Link></li>}
-            <li><Link onClick={handleLogout}>Logout</Link></li>
-            <img src={user?.photoURL} className='w-1/12 rounded-full' alt="" />
-        </>
-            : <li><Link to='/login'>Login</Link></li>
+        
+        {!isAdmin &&!isInstructor &&  user  ? <li><Link to='/dashboard/myclass'>Dashboard</Link></li>: ''}
+        { isAdmin ? <li><Link to='/dashboard/allusers'>Dashboard</Link></li> : ''}
+        {isInstructor ?<li><Link to='/dashboard/addclass'>Dashboard</Link></li>: ''}
+        {
+            user ? <>
+                <li><Link onClick={handleLogout}>Logout</Link></li>
+                <img src={user?.photoURL} className='w-1/12 rounded-full' alt="" /></>
+                : <li><Link to='/login'>Login</Link></li>
         }
 
     </>

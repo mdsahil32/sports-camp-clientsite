@@ -15,6 +15,8 @@ import AllUser from "../Pages/Dashboard/AllUser/AllUser";
 import Instructor from "../Pages/Instructor/Instructor";
 import AdminRoute from "./AdminRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+import InstructorRoute from "./InstructorRoute";
 
 
 const router = createBrowserRouter([
@@ -70,6 +72,10 @@ const router = createBrowserRouter([
         path: 'allusers',
         element: <AdminRoute><AllUser></AllUser></AdminRoute>
       },
+      {
+        path: 'addclass',
+        element: <InstructorRoute><AddClass></AddClass></InstructorRoute>
+      }
     ]
   }
 ]);
