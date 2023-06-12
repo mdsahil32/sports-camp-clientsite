@@ -22,20 +22,24 @@ const Dashboard = () => {
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-                        {isAdmin || !isInstructor && <><NavLink to='/dashboard/myclass' className='text-xl my-3'>My Selected Classes</NavLink>
-                        <NavLink to='/dashboard/enrolledclass' className='text-xl my-3'>My Enrolled Classes</NavLink>
+                        {isAdmin || !isInstructor && <>
+                            <h1 className="text-center bg-blue-500 p-3 text-white">User</h1>
+                            <NavLink to='/dashboard/myclass' className={({ isActive }) => (isActive ? 'text-blue-600' : '')}><p className="text-xl my-2">My Selected Classes</p></NavLink>
+                            <NavLink to='/dashboard/enrolledclass' className={({ isActive }) => (isActive ? 'text-blue-600' : '')}><p className="text-xl my-2">My Enrolled Classes</p></NavLink>
                         </>
 
                         }
                         {isAdmin &&
                             <>
-                            <h1 className="text-center bg-blue-500 p-3 text-white">Admin</h1>
-                            <NavLink className={({isActive})=>(isActive ? 'text-blue-600' : '')}  to='/dashboard/allusers'><p className="text-xl my-2">Manage Users</p></NavLink>
-                            <NavLink className={({isActive})=>(isActive ? 'text-blue-600' : '')} to='/dashboard/manageClass'><p className="text-xl">Manage Class</p></NavLink>
+                                <h1 className="text-center bg-blue-500 p-3 text-white">Admin</h1>
+                                <NavLink className={({ isActive }) => (isActive ? 'text-blue-600' : '')} to='/dashboard/allusers'><p className="text-xl my-2">Manage Users</p></NavLink>
+                                <NavLink className={({ isActive }) => (isActive ? 'text-blue-600' : '')} to='/dashboard/manageClass'><p className="text-xl">Manage Class</p></NavLink>
                             </>}
                         {
-                            isInstructor && <><NavLink to='/dashboard/addclass' className='text-xl my-3'>Add Class</NavLink>
-                            <NavLink to='/dashboard/myclasses' className='text-xl my-3'>My Classes</NavLink></>
+                            isInstructor && <>
+                                <h1 className="text-center bg-blue-500 p-3 text-white">Instructor</h1>
+                                <NavLink to='/dashboard/addclass' className={({ isActive }) => (isActive ? 'text-blue-600' : '')}><p className="text-xl my-2">Add Class</p></NavLink>
+                                <NavLink to='/dashboard/myclasses' className={({ isActive }) => (isActive ? 'text-blue-600' : '')}><p className="text-xl">My Classes</p></NavLink></>
                         }
                     </ul>
 
