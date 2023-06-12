@@ -1,6 +1,5 @@
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
-import { FaUserShield } from "react-icons/fa";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AllUser = () => {
@@ -71,9 +70,9 @@ const AllUser = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role === 'admin' ? 'admin' :
-                                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
+                                    <button onClick={() => handleMakeAdmin(user)} className="btn  bg-blue-500 text-black">Make Admin</button>
                                 }</td>
-                                <td>{user.role === 'instructor' ? 'instructor' : <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
+                                <td>{user.role === 'instructor' ? 'instructor' : <button onClick={() => handleMakeInstructor(user)} className="btn  bg-blue-500  text-black">Make Instructor</button>
                                 }</td>
                             </tr>)
                         }

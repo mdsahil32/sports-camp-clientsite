@@ -28,7 +28,10 @@ const Dashboard = () => {
 
                         }
                         {isAdmin &&
-                            <><NavLink className='text-xl my-3' to='/dashboard/allusers'>Manage Users</NavLink>
+                            <>
+                            <h1 className="text-center bg-blue-500 p-3 text-white">Admin</h1>
+                            <NavLink className={({isActive})=>(isActive ? 'text-blue-600' : '')}  to='/dashboard/allusers'><p className="text-xl my-2">Manage Users</p></NavLink>
+                            <NavLink className={({isActive})=>(isActive ? 'text-blue-600' : '')} to='/dashboard/manageClass'><p className="text-xl">Manage Class</p></NavLink>
                             </>}
                         {
                             isInstructor && <><NavLink to='/dashboard/addclass' className='text-xl my-3'>Add Class</NavLink>
